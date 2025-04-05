@@ -10,12 +10,17 @@ const trpc = createTRPCClient<AppRouter>({
 });
 
 async function main() {
-    let res = await trpc.createTodo.mutate({ 
-            title: 'GO to gym',
-            description: 'Hit the gym '
-        });      
-    console.log(res);
+    // let res = await trpc.createTodo.mutate({ 
+    //         title: 'GO to gym',
+    //         description: 'Hit the gym '
+    //     });      
+    // console.log(res);
+
+    let res2 = await trpc.signUp.mutate({ 
+        email: 'Vd4mW@example.com', 
+        password: '123456'  
+    });
+    console.log(res2);
 }
 
 main();
-

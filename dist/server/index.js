@@ -16,15 +16,28 @@ const todoInputType = zod_1.z.object({
     title: zod_1.z.string(),
     description: zod_1.z.string(),
 });
+const signUpInputType = zod_1.z.object({
+    email: zod_1.z.string(),
+    password: zod_1.z.string(),
+});
 const appRouter = (0, trpc_1.router)({
     createTodo: trpc_1.publicProcedure
         .input(todoInputType)
         .mutation((opts) => __awaiter(void 0, void 0, void 0, function* () {
         const title = opts.input.title;
         const description = opts.input.description;
-        // Do db stuff here
         return {
             id: "1",
+        };
+    })),
+    signUp: trpc_1.publicProcedure
+        .input(signUpInputType)
+        .mutation((opts) => __awaiter(void 0, void 0, void 0, function* () {
+        let email = opts.input.email;
+        let password = opts.input.password;
+        let token = "123123";
+        return {
+            token
         };
     }))
 });
